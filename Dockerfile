@@ -15,7 +15,7 @@ RUN apt-get update \
 RUN git clone https://github.com/shadowsocks/shadowsocks-libev.git $BASEDIR
 WORKDIR $BASEDIR
 RUN git checkout $VERSION \
- && ./configure --with-pcre=/usr \
+ && ./configure \
  && make \
  && make install
 
