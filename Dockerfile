@@ -2,7 +2,7 @@ FROM ubuntu:trusty
 
 MAINTAINER lotosbin <lotosbin@gmail.com>
 
-ENV DEPENDENCIES git-core build-essential autoconf libtool libssl-dev
+ENV DEPENDENCIES git-core build-essential autoconf libtool libssl-dev libpcre3 libpcre3-dev
 ENV BASEDIR /tmp/shadowsocks-libev
 ENV PORT 8338
 ENV VERSION v2.5.6
@@ -15,7 +15,7 @@ RUN apt-get update \
 RUN git clone https://github.com/shadowsocks/shadowsocks-libev.git $BASEDIR
 WORKDIR $BASEDIR
 RUN git checkout $VERSION \
- && ./configure \
+ && ./configure --with-pcre=/usr \
  && make \
  && make install
 
