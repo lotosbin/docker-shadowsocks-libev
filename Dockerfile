@@ -2,7 +2,7 @@ FROM ubuntu:trusty
 
 MAINTAINER lotosbin <lotosbin@gmail.com>
 
-ENV DEPENDENCIES git-core build-essential autoconf libtool libssl-dev libpcre3 libpcre3-dev
+ENV DEPENDENCIES git-core build-essential autoconf libtool libssl-dev libpcre3 libpcre3-dev asciidoc
 ENV BASEDIR /tmp/shadowsocks-libev
 ENV PORT 8338
 ENV VERSION v2.5.6
