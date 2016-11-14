@@ -21,8 +21,8 @@ RUN git checkout $VERSION \
 
 # Tear down building environment and delete git repository
 WORKDIR /
-#RUN rm -rf $BASEDIR/shadowsocks-libev\
- && apt-get --purge autoremove -y $DEPENDENCIES
+#RUN rm -rf $BASEDIR/shadowsocks-libev \
+# && apt-get --purge autoremove -y $DEPENDENCIES
 
 # Port in the json config file won't take affect. Instead we'll use 8388.
 EXPOSE $PORT
