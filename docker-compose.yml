@@ -1,0 +1,9 @@
+version: '2'
+services:
+  app:
+    image: ss18
+    ports:
+      - "58339:8338"
+    volumes:
+      - ./shadowsocks.log:/var/log/shadowsocks.log
+      - ./config.json:/etc/shadowsocks/config.json

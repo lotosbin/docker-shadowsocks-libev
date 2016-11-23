@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:16.04
 
 MAINTAINER lotosbin <lotosbin@gmail.com>
 
@@ -8,9 +8,11 @@ ENV BASEDIR /tmp/shadowsocks-libev
 ENV PORT 8338
 ENV VERSION v2.5.6
 
+RUN apt-get update
+RUN apt-get install -y shadowsocks
 # Set up building environment
-ADD ./install.sh /tmp/
-RUN /tmp/install.sh
+# ADD ./install2.sh /tmp/
+# RUN /tmp/install2.sh
 # RUN apt-get update \
 #  && apt-get install --no- -y $DEPENDENCIES
 
@@ -30,7 +32,9 @@ WORKDIR /
 # Port in the json config file won't take affect. Instead we'll use 8388.
 EXPOSE $PORT
 
+ADD ./start.sh /start.sh
+ENTRYPOINT ["/start.sh"]
 # Override the host and port in the config file.
-ADD entrypoint /
-ENTRYPOINT ["/entrypoint"]
-CMD ["-h"]
+# ADD entrypoint /
+# ENTRYPOINT ["/entrypoint"]
+# CMD ["-h"]
